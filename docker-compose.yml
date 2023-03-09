@@ -13,6 +13,8 @@ services:
       AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
       AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
       ROLLBAR_ACCESS_TOKEN: "${ROLLBAR_ACCESS_TOKEN}"
+      AWS_COGNITO_USER_POOL_ID: "ca-central-1_EDLaeU7JN"
+      AWS_COGNITO_USER_POOL_CLIENT_ID: "7546m7icrmh76ul6pgit9qhpnt"
     build: ./backend-flask
     ports:
       - "4567:4567"
@@ -21,6 +23,11 @@ services:
   frontend-react-js:
     environment:
       REACT_APP_BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+      REACT_APP_AWS_PROJECT_REGION: "${AWS_REGION}"
+      REACT_APP_AWS_COGNITO_REGION: "${AWS_REGION}"
+      REACT_APP_AWS_COGNITO_IDENTITY_POOL_ID: ""
+      REACT_APP_CLIENT_ID: "7546m7icrmh76ul6pgit9qhpnt"
+      REACT_APP_AWS_USER_POOLS_ID: "ca-central-1_EDLaeU7JN"
     build: ./frontend-react-js
     ports:
       - "3000:3000"
@@ -39,7 +46,7 @@ services:
 
 # the name flag is a hack to change the default prepend folder
 # name when outputting the image names
-networks: 
+networks:
   internal-network:
     driver: bridge
     name: cruddur

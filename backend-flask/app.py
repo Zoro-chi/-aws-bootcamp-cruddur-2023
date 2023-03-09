@@ -77,7 +77,7 @@ backend = os.getenv('BACKEND_URL')
 origins = [frontend, backend]
 cors = CORS(
   app, 
-  resources={r"/api/*": {"origins": origins}},
+  resources={r"/api/*": {"origins": "*"}},
   headers=['Content-Type', 'Authorization'], 
   expose_headers='Authorization',
   methods="OPTIONS,GET,HEAD,POST"
@@ -155,10 +155,6 @@ def data_create_message():
 @app.route("/api/activities/home", methods=['GET'])
 # def data_home(logger):
 def data_home():
-    app.logger.debug("AUTH HEADER")
-    print(
-        request.headers.get("Authorization")
-    )
     # data = HomeActivities.run(logger=LOGGER)
     data = HomeActivities.run()
     return data, 200
