@@ -1,5 +1,24 @@
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
-export CONNECTION_URL="postgres://postgres:password@localhost:5432/cruddur"
+DROP TABLE IF EXISTS public.users;
+DROP TABLE IF EXISTS public.activities;
 
-export gp env 
+CREATE TABLE public.users (
+  uuid UUID default uuid_generate_v4() primary key,
+  display_name text,
+  handle text,
+  cognito_user_id text,
+  created_at timestamp default current_timestamp NOT NULL
+);
+
+CREATE TABLE public.activities (
+  uuid UUID default uuid_generate_v4() primary key,
+  user_uuid UUID REFERENCES public.users(uuid) NOT NULL,
+  message text NOT NULL,
+  replies_count integer default 0,
+  reposts_count integer default 0,
+  likes_count integer default 0,
+  reply_to_activity_uuid integer,
+  expires_at timestamp,
+  created_at timestamp default current_timestamp NOT NULL
+);
