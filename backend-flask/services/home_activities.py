@@ -30,7 +30,7 @@ class HomeActivities:
         FROM public.activities
         LEFT JOIN public.users ON users.uuid = activities.user_uuid
         ORDER BY activities.created_at DESC
-        """)
+      """)
 
     print(sql)
     with pool.connection() as conn:
