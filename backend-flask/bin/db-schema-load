@@ -14,7 +14,6 @@ if [ "$1" = "prod" ]; then
   echo "Running in production mode"
   CON_URL=$PROD_CONNECTION_URL
 else
-  echo "Running in development mode"
   CON_URL=$CONNECTION_URL
 fi
 
