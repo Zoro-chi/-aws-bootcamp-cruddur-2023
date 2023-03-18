@@ -12,19 +12,14 @@ export default function DesktopSidebar(props) {
 		{ hashtag: "FreeWillyReboot", count: 7753 },
 	];
 
-	const users = [{ display_name: "Zoro", handle: "zoro-chi" }];
+	const users = [{ display_name: "Andrew Brown", handle: "andrewbrown" }];
 
 	let trending;
-	if (props.user) {
-		trending = <TrendingSection trendings={trendings} />;
-	}
-
 	let suggested;
-	if (props.user) {
-		suggested = <SuggestedUsersSection users={users} />;
-	}
 	let join;
 	if (props.user) {
+		trending = <TrendingSection trendings={trendings} />;
+		suggested = <SuggestedUsersSection users={users} />;
 	} else {
 		join = <JoinSection />;
 	}

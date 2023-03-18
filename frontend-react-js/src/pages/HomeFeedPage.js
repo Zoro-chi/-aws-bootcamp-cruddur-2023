@@ -1,14 +1,13 @@
 import "./HomeFeedPage.css";
 import React from "react";
 
+import { Auth } from "aws-amplify";
+
 import DesktopNavigation from "../components/DesktopNavigation";
 import DesktopSidebar from "../components/DesktopSidebar";
 import ActivityFeed from "../components/ActivityFeed";
 import ActivityForm from "../components/ActivityForm";
 import ReplyForm from "../components/ReplyForm";
-
-// [TODO] Authenication
-import { Auth } from "aws-amplify";
 
 export default function HomeFeedPage() {
 	const [activities, setActivities] = React.useState([]);
@@ -38,12 +37,11 @@ export default function HomeFeedPage() {
 		}
 	};
 
-	//* check if we are authenicated
 	const checkAuth = async () => {
 		Auth.currentAuthenticatedUser({
-			//* Optional, By default is false.
-			//* If set to true, this call will send a
-			//* request to Cognito to get the latest user data
+			// Optional, By default is false.
+			// If set to true, this call will send a
+			// request to Cognito to get the latest user data
 			bypassCache: false,
 		})
 			.then((user) => {
@@ -60,7 +58,7 @@ export default function HomeFeedPage() {
 	};
 
 	React.useEffect(() => {
-		//* prevents double call
+		//prevents double call
 		if (dataFetchedRef.current) return;
 		dataFetchedRef.current = true;
 
