@@ -1,2 +1,3 @@
 backend-flask/__pycache__/
 frontend-react-js/node_modules
+backend-flask/.env.example
