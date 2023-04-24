@@ -32,42 +32,46 @@ Amplify.configure({
 
 const router = createBrowserRouter([
 	{
-		path: "/",
-		element: <HomeFeedPage />,
+	  path: "/",
+	  element: <HomeFeedPage />
 	},
 	{
-		path: "/notifications",
-		element: <NotificationsFeedPage />,
+	  path: "/notifications",
+	  element: <NotificationsFeedPage />
 	},
 	{
-		path: "/@:handle",
-		element: <UserFeedPage />,
+	  path: "/@:handle",
+	  element: <UserFeedPage />
 	},
 	{
-		path: "/messages",
-		element: <MessageGroupsPage />,
+	  path: "/messages",
+	  element: <MessageGroupsPage />
+	},
+	// {
+	//   path: "/messages/new/:handle",
+	//   element: <MessageGroupNewPage />
+	// },
+	{
+	  path: "/messages/:message_group_uuid",
+	  element: <MessageGroupPage />
 	},
 	{
-		path: "/messages/@:handle",
-		element: <MessageGroupPage />,
+	  path: "/signup",
+	  element: <SignupPage />
 	},
 	{
-		path: "/signup",
-		element: <SignupPage />,
+	  path: "/signin",
+	  element: <SigninPage />
 	},
 	{
-		path: "/signin",
-		element: <SigninPage />,
+	  path: "/confirm",
+	  element: <ConfirmationPage />
 	},
 	{
-		path: "/confirm",
-		element: <ConfirmationPage />,
-	},
-	{
-		path: "/forgot",
-		element: <RecoverPage />,
-	},
-]);
+	  path: "/forgot",
+	  element: <RecoverPage />
+	}
+  ]);
 
 function App() {
 	return (
