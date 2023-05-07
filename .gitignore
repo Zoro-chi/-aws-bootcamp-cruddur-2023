@@ -3,3 +3,4 @@ frontend-react-js/node_modules
 backend-flask/.env.example
 .env
 /.env
+frontend-react-js/*
