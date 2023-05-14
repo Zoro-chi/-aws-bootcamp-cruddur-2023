@@ -11,6 +11,7 @@ parent_path = os.path.abspath(os.path.join(current_path, '..', '..'))
 sys.path.append(parent_path)
 from lib.db import db
 
+
 def update_users_with_cognito_user_id(handle,sub):
   sql = """
     UPDATE public.users
