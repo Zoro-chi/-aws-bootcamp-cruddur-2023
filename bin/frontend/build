@@ -7,8 +7,6 @@ PROJECT_PATH=$(dirname $BIN_PATH)
 
 FRONTEND_REACT_JS_PATH="$PROJECT_PATH/frontend-react-js"
 
-echo $PROJECT_PATH
-
 
 docker build \
 --build-arg REACT_APP_BACKEND_URL="$REACT_APP_BACKEND_URL" \
