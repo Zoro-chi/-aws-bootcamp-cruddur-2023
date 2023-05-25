@@ -5,3 +5,4 @@ backend-flask/.env.example
 docker/**/*
 frontend-react-js/build/*
 *.env
+node_modules

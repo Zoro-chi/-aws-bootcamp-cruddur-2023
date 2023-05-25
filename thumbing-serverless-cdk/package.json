@@ -20,9 +20,11 @@
     "typescript": "~5.0.4"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.338.0",
     "aws-cdk-lib": "2.80.0",
     "constructs": "^10.0.0",
     "dotenv": "^16.0.3",
+    "sharp": "^0.32.1",
     "source-map-support": "^0.5.21"
   }
 }
