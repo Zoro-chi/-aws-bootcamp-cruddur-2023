@@ -22,41 +22,41 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
     const webhookUrl: string = process.env.THUMBING_WEBHOOK_URL as string;
     const topicName: string = process.env.THUMBING_TOPIC_NAME as string;
     const functionPath: string = process.env.THUMBING_FUNCTION_PATH as string;
-    console.log('bucketName',bucketName)
-    console.log('folderInput',folderInput)
-    console.log('folderOutput',folderOutput)
-    console.log('webhookUrl',webhookUrl)
-    console.log('topicName',topicName)
-    console.log('functionPath',functionPath)
 
     const bucket = this.createBucket(bucketName)
+    // const bucket = this.importBucket(bucketName)
     const lambda = this.createLambda(folderInput,folderOutput,functionPath,bucketName)
 
     // This could be redundent since we have s3ReadWritePolicy?
-    bucket.grantRead(lambda);
-    bucket.grantPut(lambda);
+    // bucket.grantRead(lambda);
+    // bucket.grantPut(lambda);
 
-    const snsTopic = this.createSnsTopic(topicName)
-    this.createSnsSubscription(snsTopic,webhookUrl)
+    // const snsTopic = this.createSnsTopic(topicName)
+    // this.createSnsSubscription(snsTopic,webhookUrl)
 
     // S3 Event Notifications
-    this.createS3NotifyToSns(folderOutput,snsTopic,bucket)
+    // this.createS3NotifyToSns(folderOutput,snsTopic,bucket)
     this.createS3NotifyToLambda(folderInput,lambda,bucket)
 
     const s3ReadWritePolicy = this.createPolicyBucketAccess(bucket.bucketArn)
-    const snsPublishPolicy = this.createPolicySnSPublish(snsTopic.topicArn)
+    // const snsPublishPolicy = this.createPolicySnSPublish(snsTopic.topicArn)
 
     lambda.addToRolePolicy(s3ReadWritePolicy);
-    lambda.addToRolePolicy(snsPublishPolicy);
+    // lambda.addToRolePolicy(snsPublishPolicy);
   }
 
   createBucket(bucketName: string): s3.IBucket {
-    const logicalName: string = 'ThumbingBucket';
+    const logicalName: string = 'AssetsBucket';
     const bucket = new s3.Bucket(this, logicalName , {
       bucketName: bucketName,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
     });
     return bucket;
+  }
+
+  importBucket(bucketName: string): s3.IBucket {
+    const bucket = s3.Bucket.fromBucketName(this, "AssetsBucket", bucketName)
+    return bucket
   }
 
   createLambda(folderIntput: string, folderOutput: string, functionPath: string, bucketName: string): lambda.IFunction {
