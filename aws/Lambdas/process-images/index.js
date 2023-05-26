@@ -1,3 +1,4 @@
+const path = require('path')
 const process = require('process');
 const {getClient, getOriginalImage, processImage, uploadProcessedImage} = require('./s3-image-processing.js')
 
@@ -14,11 +15,13 @@ exports.handler = async (event) => {
   const srcKey = decodeURIComponent(event.Records[0].s3.object.key.replace(/\+/g, ' '));
   console.log('srcBucket',srcBucket)
   console.log('srcKey',srcKey)
-
+  
   const dstBucket = bucketName;
-  const dstKey = srcKey.replace(folderInput,folderOutput)
+  const filename = path.parse(srcKey).name
+  const dstKey = `${folderOutput}/${filename}.jpg`
   console.log('dstBucket',dstBucket)
   console.log('dstKey',dstKey)
+
 
   const originalImage = await getOriginalImage(client,srcBucket,srcKey)
   const processedImage = await processImage(originalImage,width,height)

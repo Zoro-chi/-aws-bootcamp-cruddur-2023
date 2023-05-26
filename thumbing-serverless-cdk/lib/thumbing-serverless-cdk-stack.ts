@@ -31,11 +31,11 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
     // bucket.grantRead(lambda);
     // bucket.grantPut(lambda);
 
-    // const snsTopic = this.createSnsTopic(topicName)
-    // this.createSnsSubscription(snsTopic,webhookUrl)
+    const snsTopic = this.createSnsTopic(topicName)
+    this.createSnsSubscription(snsTopic,webhookUrl)
 
     // S3 Event Notifications
-    // this.createS3NotifyToSns(folderOutput,snsTopic,bucket)
+    this.createS3NotifyToSns(folderOutput,snsTopic,bucket)
     this.createS3NotifyToLambda(folderInput,lambda,bucket)
 
     const s3ReadWritePolicy = this.createPolicyBucketAccess(bucket.bucketArn)
@@ -95,7 +95,7 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
   }
 
   createSnsTopic(topicName: string): sns.ITopic{
-    const logicalName = "Topic";
+    const logicalName = "ThumbingTopic";
     const snsTopic = new sns.Topic(this, logicalName, {
       topicName: topicName
     });
@@ -122,15 +122,15 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
     return s3ReadWritePolicy;
   }
 
-  createPolicySnSPublish(topicArn: string){
-    const snsPublishPolicy = new iam.PolicyStatement({
-      actions: [
-        'sns:Publish',
-      ],
-      resources: [
-        topicArn
-      ]
-    });
-    return snsPublishPolicy;
-  }
+  // createPolicySnSPublish(topicArn: string){
+  //   const snsPublishPolicy = new iam.PolicyStatement({
+  //     actions: [
+  //       'sns:Publish',
+  //     ],
+  //     resources: [
+  //       topicArn
+  //     ]
+  //   });
+  //   return snsPublishPolicy;
+  // }
 }
