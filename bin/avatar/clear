@@ -6,5 +6,5 @@ DATA_FILE_PATH="$SEVERLESS_PATH/files/data.jpg"
 
 
 
-aws s3 rm "s3://assets.$DOMAIN_NAME/avatars/original/data.jpg"
+aws s3 rm "s3://cruddur-uploaded-avatars-222/avatars/original/data.jpg"
 aws s3 rm "s3://assets.$DOMAIN_NAME/avatars/processed/data.jpg"
