@@ -1,7 +1,6 @@
 from lib.db import db
 #from aws_xray_sdk.core import xray_recorder
 
-
 class UserActivities:
   def run(user_handle):
     #try:

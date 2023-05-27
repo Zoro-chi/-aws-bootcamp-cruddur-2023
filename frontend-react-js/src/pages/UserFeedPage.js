@@ -6,7 +6,7 @@ import DesktopNavigation from '../components/DesktopNavigation';
 import DesktopSidebar from '../components/DesktopSidebar';
 import ActivityFeed from '../components/ActivityFeed';
 import ActivityForm from '../components/ActivityForm';
-// import ProfileHeading from '../components/ProfileHeading';
+import ProfileHeading from '../components/ProfileHeading';
 // import ProfileForm from '../components/ProfileForm';
 
 import checkAuth, { getAccessToken } from '../lib/CheckAuth';
@@ -65,7 +65,7 @@ export default function UserFeedPage() {
         /> */}
 
         <div className='activity_feed'>
-          {/* <ProfileHeading setPopped={setPoppedProfile} profile={profile} /> */}
+          <ProfileHeading setPopped={setPoppedProfile} profile={profile} />
           <ActivityFeed activities={activities} />
         </div>
       </div>
