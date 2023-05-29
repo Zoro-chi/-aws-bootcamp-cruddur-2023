@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@aws-sdk/client-s3": "^3.338.0",
+    "aws-jwt-verify": "^4.0.0",
     "dotenv": "^16.0.3",
     "sharp": "^0.32.1"
   }
