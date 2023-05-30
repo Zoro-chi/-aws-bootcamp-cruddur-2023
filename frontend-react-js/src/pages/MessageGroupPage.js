@@ -25,7 +25,8 @@ export default function MessageGroupPage() {
         headers: {
           Authorization: `Bearer ${access_token}`
         },
-        method: "GET"
+        method: "GET",
+        credentials: 'include'
       });
       let resJson = await res.json();
       if (res.status === 200) {
@@ -47,7 +48,8 @@ export default function MessageGroupPage() {
         headers: {
           Authorization: `Bearer ${access_token}`
         },
-        method: "GET"
+        method: "GET",
+        credentials: 'include'
       });
       let resJson = await res.json();
       if (res.status === 200) {
