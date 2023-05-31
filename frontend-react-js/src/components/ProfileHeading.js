@@ -17,8 +17,8 @@ export default function ProfileHeading(props) {
         <img src="https://assets.zoro-chi.com.ng/avatars/data.jpg"></img>
       </div>
     </div>
-    <div class="info">
-      <div class='id'>
+    <div className="info">
+      <div className='id'>
         <div className="display_name">{props.profile?.display_name}</div>
         <div className="handle">@{props.profile?.handle}</div>
       </div>

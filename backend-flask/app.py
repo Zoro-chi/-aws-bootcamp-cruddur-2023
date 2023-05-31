@@ -89,9 +89,9 @@ cors = CORS(
     app,
     resources={r"/api/*": {"origins": "*"}},
     supports_credentials=True,
-    # headers=['Content-Type', 'Authorization'],
     expose_headers='Authorization',
-    methods="OPTIONS,GET,HEAD,POST",
+    methods=["OPTIONS", "GET", "HEAD", "POST"],
+    allow_headers=["Content-Type", "Authorization"],
 )
 
 # @app.after_request
@@ -238,12 +238,13 @@ def data_notifications():
 
 
 @app.route("/api/activities/@<string:handle>", methods=['GET'])
+#@xray_recorder.capture('activities_users')
 def data_handle(handle):
-    model = UserActivities.run(handle)
-    if model['errors'] is not None:
-        return model['errors'], 422
-    else:
-        return model['data'], 200
+  model = UserActivities.run(handle)
+  if model['errors'] is not None:
+    return model['errors'], 422
+  else:
+    return model['data'], 200
 
 
 @app.route("/api/activities/search", methods=['GET'])
