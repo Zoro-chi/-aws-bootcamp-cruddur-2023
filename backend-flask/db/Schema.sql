@@ -11,11 +11,6 @@ CREATE TABLE IF NOT EXISTS public.schema_information (
 INSERT INTO public.schema_information (id,last_successful_run)
 VALUES (1, '0')
 ON CONFLICT (id) DO NOTHING;
--- WHERE (SELECT count(true) FROM public.schema_information) = 0
-
--- INSERT INTO distributors (did, dname)
--- VALUES ("", "Redline GmbH")
--- ON CONFLICT (did) DO NOTHING;
 
 CREATE TABLE public.users (
   uuid UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
