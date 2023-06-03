@@ -18,7 +18,6 @@ const checkAuth = async (setUser) => {
     bypassCache: false 
   })
   .then((cognito_user) => {
-    console.log('cognito_user',cognito_user);
     setUser({
       display_name: cognito_user.attributes.name,
       handle: cognito_user.attributes.preferred_username
