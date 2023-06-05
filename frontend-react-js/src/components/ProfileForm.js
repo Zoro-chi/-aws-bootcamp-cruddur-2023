@@ -139,6 +139,7 @@ export default function ProfileForm(props) {
             </div>
           </div>
           <div className="popup_content">
+            <div onClick={s3uploadkey} style={{ backgroundColor: "green" }}> Upload Avatar </div>
           <input type="file" name="avatarupload" onChange={s3upload} />
             <div className="field display_name">
               <label>Display Name</label>
