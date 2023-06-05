@@ -1,7 +1,8 @@
 import './ProfileAvatar.css';
 
 export default function ProfileAvatar(props) {
-    const backgroundImage = `url("https://assets.zoro-chi.com.ng/avatars/${props.id}.jpg")`
+    // const backgroundImage = `url("https://assets.zoro-chi.com.ng/avatars/${props.id}.jpg")`
+    const backgroundImage = `url("https://assets.zoro-chi.com.ng/avatars/data.jpg")`
         
     const styles = {
       backgroundImage: backgroundImage,

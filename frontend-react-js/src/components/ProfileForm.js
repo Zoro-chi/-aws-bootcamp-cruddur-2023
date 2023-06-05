@@ -13,24 +13,25 @@ export default function ProfileForm(props) {
   }, [props.profile])
 
   const s3uploadkey = async (extension)=> {
-    console.log('external',extension)
+    console.log('ext',extension)
     try {
-      const api_gateway = `${process.env.REACT_APP_API_GATEWAY_ENDPOINT_URL}/avatars/key_upload`
+      const gateway_url = `${process.env.REACT_APP_API_GATEWAY_ENDPOINT_URL}/avatars/key_upload`
       await getAccessToken()
       const access_token = localStorage.getItem("access_token")
       const json = {
-          extension: extension
+        extension: extension
       }
-      const res = await fetch(api_gateway, {
+      const res = await fetch(gateway_url, {
         method: "POST",
-        credentials: 'include',
+        credentials: "include",
         body: JSON.stringify(json),
         headers: {
           'Origin': process.env.REACT_APP_FRONTEND_URL,
           'Authorization': `Bearer ${access_token}`,
           'Accept': 'application/json',
           'Content-Type': 'application/json'
-      }})
+        }
+      })
       let data = await res.json();
       if (res.status === 200) {
         return data.url
@@ -41,34 +42,29 @@ export default function ProfileForm(props) {
       console.log(err);
     }
   }
-
-  const s3upload = async (event) => {
+  const s3upload = async (event)=> {
     console.log('event',event)
     const file = event.target.files[0]
-    console.log('file',file)
     const filename = file.name
     const size = file.size
     const type = file.type
     const preview_image_url = URL.createObjectURL(file)
-    console.log(filename, size, type)
-    //const formData = new FormData();
-    //formData.append('file', file);
+    console.log(filename,size,type)
     const fileparts = filename.split('.')
     const extension = fileparts[fileparts.length-1]
     const presignedurl = await s3uploadkey(extension)
     try {
       console.log('s3upload')
-      console.log(presignedurl)
+      console.log("presigned", presignedurl)
       const res = await fetch(presignedurl, {
         method: "PUT",
+        credentials: "include",
         body: file,
         headers: {
           'Content-Type': type
-        }})
-   
-      //let data = await res.json();
+      }})
       if (res.status === 200) {
-        //setPresignedurl(data.url)
+        
       } else {
         console.log(res)
       }
@@ -76,8 +72,6 @@ export default function ProfileForm(props) {
       console.log(err);
     }
   }
-
-
 
   const onsubmit = async (event) => {
     event.preventDefault();
@@ -87,7 +81,7 @@ export default function ProfileForm(props) {
       const access_token = localStorage.getItem("access_token")
       const res = await fetch(backend_url, {
         method: "POST",
-        credentials: 'include',
+        credentials: "include",
         headers: {
           'Authorization': `Bearer ${access_token}`,
           'Accept': 'application/json',
@@ -139,8 +133,9 @@ export default function ProfileForm(props) {
             </div>
           </div>
           <div className="popup_content">
-            <div onClick={s3uploadkey} style={{ backgroundColor: "green" }}> Upload Avatar </div>
+            
           <input type="file" name="avatarupload" onChange={s3upload} />
+
             <div className="field display_name">
               <label>Display Name</label>
               <input
