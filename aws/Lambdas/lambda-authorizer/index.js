@@ -17,7 +17,8 @@ exports.handler = async (event) => {
   // const jwt = event.headers.authorization;
 
   const auth = event.headers.authorization;
-  const jwt = auth.split(" ")[1]
+  // const jwt = auth.split(" ")[1]
+  const jwt = auth.replace('Bearer ', '')
   
   try {
     const payload = await jwtVerifier.verify(jwt);
