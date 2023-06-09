@@ -24,7 +24,8 @@ def handler(event:, context:)
 
   #   decoded_token = JWT.decode token, nil, false
   #   cognito_user_uuid = decoded_token[0]['sub']
-
+  
+    
     s3 = Aws::S3::Resource.new
     bucket_name = ENV["UPLOADS_BUCKET_NAME"]
     object_key = "mock.jpg"
@@ -38,7 +39,7 @@ def handler(event:, context:)
     { 
       headers: {
         "Access-Control-Allow-Headers": "*, Authorization",
-        "Access-Control-Allow-Origin": "https://3000-zorochi-awsbootcampcrud-99b8tenoki4.ws-eu99.gitpod.io",
+        "Access-Control-Allow-Origin": "https://3000-zorochi-awsbootcampcrud-gw25yusmnpm.ws-eu99.gitpod.io",
         "Access-Control-Allow-Methods": "OPTIONS,GET,POST"
       },
       statusCode: 200, 
@@ -46,8 +47,3 @@ def handler(event:, context:)
     }
   # end # if 
 end # def handler
-
-puts handler(
-  event: {},
-  context: {}
-)
