@@ -7,6 +7,3 @@ A Social Media platform with timed self-deleting posts. It is built with Amazon 
 ![Cruddur Graphic](_docs/assets/cruddur-banner.jpg)
 
 ![Cruddur Screenshot](_docs/assets/cruddur-screenshot.png)
-
-
-
