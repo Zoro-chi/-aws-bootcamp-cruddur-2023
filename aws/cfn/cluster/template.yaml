@@ -60,7 +60,7 @@ Parameters:
     Default: "/api/health-check"
   BackendHealthCheckPort:
     Type: String
-    Default: 80
+    Default: 4567
   BackendHealthCheckProtocol:
     Type: String
     Default: HTTP
@@ -158,7 +158,8 @@ Resources:
         - Field: host-header
           HostHeaderConfig: 
             Values: 
-              - api.cruddur.com
+              # - api.cruddur.com
+              - api.zoro-chi.com.ng
       Actions: 
         - Type: forward
           TargetGroupArn:  !Ref BackendTG
