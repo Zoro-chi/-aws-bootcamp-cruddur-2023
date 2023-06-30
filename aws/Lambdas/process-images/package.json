@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.362.0",
+    "@aws-sdk/client-s3": "^3.363.0",
     "sharp": "^0.32.1"
   }
 }
