@@ -7,6 +7,6 @@ frontend-react-js/build/*
 *.env
 node_modules
 *node_modules
-.aws-sam
+.aws-sam/*
 build.toml
 tmp/*
