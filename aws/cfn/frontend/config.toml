@@ -1,0 +1,9 @@
+[deploy]
+bucket = 'cfn-artifacts-222'
+region = 'ca-central-1'
+stack_name = 'CrdFrontend'
+
+[parameters]
+CertificateArn = 'arn:aws:acm:us-east-1:902749539657:certificate/362c171d-e104-4258-b408-a4cce4c1c674'
+WwwBucketName = 'www.zoro-chi.com.ng'
+RootBucketName = 'zoro-chi.com.ng'
