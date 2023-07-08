@@ -32,9 +32,9 @@ export default function ConfirmationPage() {
 			// * does cognito always return english
 			// * for this to be an okay match?
 			console.log(err);
-			if (err.message == "Username cannot be empty") {
+			if (err.message === "Username cannot be empty") {
 				setCognitoErrors("You need to provide an email in order to send Resend Activiation Code");
-			} else if (err.message == "Username/client id combination not found.") {
+			} else if (err.message === "Username/client id combination not found.") {
 				setCognitoErrors("Email is invalid or cannot be found.");
 			}
 		}
@@ -74,7 +74,7 @@ export default function ConfirmationPage() {
 		if (params.email) {
 			setEmail(params.email);
 		}
-	}, []);
+	}, [params.email]);
 
 	return (
 		<article className="confirm-article">
