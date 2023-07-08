@@ -49,10 +49,10 @@ Parameters:
     Default: 7546m7icrmh76ul6pgit9qhpnt
   EnvFrontendUrl:
     Type: String
-    Default: "*"
+    Default: "https://zoro-chi.com.ng"
   EnvBackendUrl:
     Type: String
-    Default: "*"
+    Default: "https://api.zoro-chi.com.ng"
   SecretsAWSAccessKeyId:
     Type: String
     Default: 'arn:aws:ssm:ca-central-1:902749539657:parameter/cruddur/backend-flask/AWS_ACCESS_KEY_ID'
