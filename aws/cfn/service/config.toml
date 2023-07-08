@@ -2,3 +2,7 @@
 bucket = 'cfn-artifacts-222'
 region = 'ca-central-1'
 stack_name = 'CrdSrvBackendFlask'
+
+[parameters]
+EnvFrontendUrl = 'https://zoro-chi.com.ng'
+EnvBackendUrl = 'https://api.zoro-chi.com.ng'
