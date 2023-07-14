@@ -71,7 +71,7 @@ class Db:
         return json[0]
   # When we want to return an array of json objects
   def query_object_json(self,sql,params={},verbose=True):
-    if verbose: 
+    if verbose:
       self.print_sql('json',sql,params)
       self.print_params(params)
 
@@ -88,6 +88,7 @@ class Db:
   def query_value(self,sql,params={},verbose=True):
     if verbose:
       self.print_sql('value',sql,params)
+
     with self.pool.connection() as conn:
       with conn.cursor() as cur:
         cur.execute(sql,params)
