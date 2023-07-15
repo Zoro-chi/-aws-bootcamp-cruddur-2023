@@ -283,5 +283,3 @@ select * from users;
 Now we can check our domain https://zoro-chi.com.ng to see if everything works. If it is, we can safely remove TMP1 and TMP2 inbound rules in the security group `cruddur-alb-sg`, and delete HTTP:4567 and HTTP:3000 listeners in load balancer `cruddur-alb` (they were there for debugging more easily). Now we can only access the application through the domain.
 
 If changes are made for backend/frontend, use the scripts in `./bin/backend/` and `./bin/frontend/` to build, tag, push the image to ECR, and update the service with a force deployment.
-
-You may see "503 Service Temporarily Unavailable" on my domain. This is because I've updated the Fargate services which set the task to 0 in order to save my AWS budget.
