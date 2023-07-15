@@ -6,3 +6,4 @@ stack_name = 'CrdSrvBackendFlask'
 [parameters]
 EnvFrontendUrl = 'https://zoro-chi.com.ng'
 EnvBackendUrl = 'https://api.zoro-chi.com.ng'
+DDBMessageTable = 'CrdDdb-DynamoDBTable-E436EEVADMKC'
