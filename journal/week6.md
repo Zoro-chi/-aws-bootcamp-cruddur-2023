@@ -75,7 +75,7 @@ gp env ECR_BACKEND_FLASK_URL="$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazon
 
 ## Images of Backend and Frontend
 
-Pull a base image of python, then tag and push it to our ECR repo:
+Pull a base image of python, then tag and push it to the ECR repo:
 
 ```sh
 ./bin/ecr/login
