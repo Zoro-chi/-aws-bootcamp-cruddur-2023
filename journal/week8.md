@@ -15,7 +15,7 @@ This week we need to use CDK (Cloud Development Kit) to create S3 buckets, Lambd
 There are some commands to run every time before and after docker compose up. To be done more efficiently, create the following scripts as seen in `./bin/bootstrap`:
 
 ```sh
-cd /workspace/aws-bootcamp-cruddur-2023/bin
+cd /workspace/-aws-bootcamp-cruddur-2023/bin
 touch bootstrap prepare
 chmod u+x bootstrap prepare
 ```
@@ -46,7 +46,7 @@ npm install sharp @aws-sdk/client-s3
 To check if the created Lambda function works or not, create scripts by the following commands and then upload a profile picture named `data.jpg` inside the created folder `files`:
 
 ```sh
-cd /workspace/aws-bootcamp-cruddur-2023
+cd /workspace/-aws-bootcamp-cruddur-2023
 mkdir -p bin/avatar
 cd bin/avatar
 touch build upload clear
