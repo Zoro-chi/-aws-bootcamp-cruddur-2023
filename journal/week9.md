@@ -40,7 +40,7 @@ For the newly created service role, attach a policy as shown in `aws/policies/ec
 
 Create a pipeline:
 
-- name as `cruddur-backend-fargate`, allow to create a new service role automatically named as `AWSCodePipelineServiceRole-us-east-1-cruddur-backend-fargate`, select default location and default managed key in advanced settings
+- name as `cruddur-backend-fargate`, allow to create a new service role automatically named as `AWSCodePipelineServiceRole-ca-central-1-cruddur-backend-fargate`, select default location and default managed key in advanced settings
 - source stage from GitHub (Version 2), click "Connect to GitHub", set connection name as `cruddur`, install a new app, select the cruddur repo, in the end finish "Connect to GitHub" and back to the pipeline page
 - select the cruddur repo and select branch `prod`, select "start the pipeline on source code change" and default output artifact format
 - for build stage, select AWS CodeBuild as build provider, select your region, select the newly created project `cruddur-backend-flask-bake-image`
