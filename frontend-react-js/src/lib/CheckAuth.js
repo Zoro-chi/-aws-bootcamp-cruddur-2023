@@ -1,5 +1,5 @@
 import { Auth } from 'aws-amplify';
-
+import { resolvePath } from 'react-router-dom';
 
 export async function getAccessToken(){
   Auth.currentSession()
@@ -10,7 +10,7 @@ export async function getAccessToken(){
   .catch((err) => console.log(err));
 }
 
-const checkAuth = async (setUser) => {
+export async function checkAuth(setUser){
   Auth.currentAuthenticatedUser({
     // Optional, By default is false. 
     // If set to true, this call will send a 
@@ -25,10 +25,7 @@ const checkAuth = async (setUser) => {
     })
     return Auth.currentSession()
   }).then((cognito_user_session) => {
-    console.log(cognito_user_session)
-    localStorage.setItem("access_token", cognito_user_session.accessToken.jwtToken);      
+      localStorage.setItem("access_token", cognito_user_session.accessToken.jwtToken)
   })
   .catch((err) => console.log(err));
 };
-
-export default checkAuth;
