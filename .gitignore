@@ -1,13 +1,18 @@
-backend-flask/__pycache__/
-frontend-react-js/node_modules
-backend-flask/.env.example
-
 docker/**/*
 frontend-react-js/build/*
 *.env
 node_modules
-*node_modules
+session-manager-plugin.*
 .aws-sam
-*.aws-sam
 build.toml
 tmp/*
+
+# docker/**/*
+# frontend-react-js/build/*
+# *.env
+# node_modules
+# *node_modules
+# .aws-sam
+# *.aws-sam
+# build.toml
+# tmp/*
