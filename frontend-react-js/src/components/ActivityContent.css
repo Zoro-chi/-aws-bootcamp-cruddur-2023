@@ -1,6 +1,6 @@
 .activity_content_wrap {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
 }
 
@@ -16,6 +16,7 @@
   border-radius: 999px;
   flex-shrink: 0;
   display: block;
+  color: #fff;
 }
 
 .activity_content .activity_meta {

@@ -68,7 +68,25 @@
   
   .activity_item.expanded .activity_content {
 	display: flex;
+	gap: 8px;
   }
+
+  .created_at {
+	color: rgb(255,255,255,0.5);
+  }
+
+  .message {
+	color: #fff;
+	padding: 13px;
+  }
+
+  .activity_content .activity_meta {
+	display: flex;
+	justify-content: space-between;
+	gap: 3rem;
+  }
+
   .activity_item.expanded .activity_content .activity_identity{
 	flex-grow: 1;
+	padding: 12px;
   }
