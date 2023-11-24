@@ -8,3 +8,5 @@ Hosted here: https://zoro-chi.com.ng/
 
 ![Cruddur Screenshot](_docs/assets/cruddur-screenshot.png)
 
+#WEEKLY DOCUMENTATION:
+[Journal/Documentation]( https://github.com/Zoro-chi/-aws-bootcamp-cruddur-2023/tree/main/journal )
